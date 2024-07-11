@@ -28,8 +28,6 @@ const KEYWORDS = [
     "unsafe",
 ];
 
-// TODO: Ifs, loops, ternary exp
-
 module.exports = grammar({
     name: "amber",
 
