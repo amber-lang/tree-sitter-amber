@@ -89,6 +89,10 @@
               },
               {
                 "type": "SYMBOL",
+                "name": "shebang"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "_expression"
               }
             ]
@@ -285,9 +289,29 @@
         }
       ]
     },
+    "preprocessor_directive": {
+      "type": "PATTERN",
+      "value": "\\#\\[[^]\\s]+]"
+    },
+    "shebang": {
+      "type": "PATTERN",
+      "value": "\\#\\!.*"
+    },
     "function_definition": {
       "type": "SEQ",
       "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "preprocessor_directive"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
         {
           "type": "CHOICE",
           "members": [

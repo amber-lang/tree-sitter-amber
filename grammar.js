@@ -54,6 +54,7 @@ module.exports = grammar({
             $.loop_control_flow,
             $.variable_init,
             $.variable_assignment,
+            $.shebang,
             $._expression
         ), optional(";"))),
 
@@ -89,7 +90,11 @@ module.exports = grammar({
             ")"
         ),
 
+        preprocessor_directive: $ => /\#\[[^]\s]+]/,
+        shebang: $ => /\#\!.*/,
+
         function_definition: $ => seq(
+            optional($.preprocessor_directive),
             optional("pub"),
             "fun",
             field("name", $.variable),
