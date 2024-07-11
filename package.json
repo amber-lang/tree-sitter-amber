@@ -1,0 +1,45 @@
+{
+  "name": "tree-sitter-amber",
+  "version": "1.0.0",
+  "description": "Tree sitter made for Amber",
+  "main": "index.js",
+  "types": "bindings/node",
+  "scripts": {
+    "generate": "./node_modules/.bin/tree-sitter generate",
+    "parse": "./node_modules/.bin/tree-sitter parse",
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip"
+  },
+  "author": "Paweł Karaś",
+  "license": "ISC",
+  "dependencies": {
+    "node-addon-api": "^7.1.0",
+    "node-gyp-build": "^4.8.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree_sitter": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.22.6",
+    "prebuildify": "^6.0.0"
+  },
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
+  "tree-sitter": [
+    {
+      "scope": "source.amber",
+      "injection-regex": "^amber$"
+    }
+  ]
+}
