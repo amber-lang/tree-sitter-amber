@@ -55,6 +55,7 @@ module.exports = grammar({
             $.variable_init,
             $.variable_assignment,
             $.shebang,
+            $.builtin,
             $._expression
         ), optional(";"))),
 
@@ -68,6 +69,8 @@ module.exports = grammar({
             optional(seq("(", $.variable, ")")),
             $.block
         ),
+
+        builtin: $ => seq(choice("echo", "exit"), $._expression),
 
         function_parameter_list_item: $ => prec.left(seq(
             $.variable,
