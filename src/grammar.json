@@ -93,6 +93,10 @@
               },
               {
                 "type": "SYMBOL",
+                "name": "builtin"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "_expression"
               }
             ]
@@ -185,6 +189,28 @@
         {
           "type": "SYMBOL",
           "name": "block"
+        }
+      ]
+    },
+    "builtin": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "echo"
+            },
+            {
+              "type": "STRING",
+              "value": "exit"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
         }
       ]
     },
@@ -592,15 +618,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "variable"
-        },
-        {
-          "type": "STRING",
-          "value": "="
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_expression"
+          "name": "variable_assignment"
         }
       ]
     },
