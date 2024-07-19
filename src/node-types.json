@@ -613,6 +613,10 @@
           "named": true
         },
         {
+          "type": "reference",
+          "named": true
+        },
+        {
           "type": "status",
           "named": true
         },
@@ -1857,6 +1861,10 @@
   {
     "type": "pub",
     "named": false
+  },
+  {
+    "type": "reference",
+    "named": true
   },
   {
     "type": "return",

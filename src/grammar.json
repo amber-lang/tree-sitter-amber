@@ -214,12 +214,28 @@
         }
       ]
     },
+    "reference": {
+      "type": "STRING",
+      "value": "ref"
+    },
     "function_parameter_list_item": {
       "type": "PREC_LEFT",
       "value": 0,
       "content": {
         "type": "SEQ",
         "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "reference"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
           {
             "type": "SYMBOL",
             "name": "variable"
