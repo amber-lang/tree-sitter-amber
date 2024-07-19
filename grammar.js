@@ -148,7 +148,7 @@ module.exports = grammar({
         status: $ => token("status"),
 
         function_call: $ => seq(
-            $.variable,
+            field("name", $.variable),
             seq(
                 "(",
                 optional(
