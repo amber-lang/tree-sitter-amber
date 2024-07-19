@@ -146,6 +146,7 @@ module.exports = grammar({
         number: $ => token(seq(optional(/[-+]/), /\d+(\.\d+)?/)),
         type_name: $ => choice("Text", "Num", "Bool", "Null"),
         status: $ => token("status"),
+        array: $ => seq("[", optional(seq($._expression, repeat(seq(",", $._expression)))), "]"),
 
         function_call: $ => seq(
             field("name", $.variable),
@@ -240,6 +241,7 @@ module.exports = grammar({
             $.keyword_binop,
             $.subscript_expression,
             $.command,
+            $.array,
             $.string,
             $.variable,
         ),
