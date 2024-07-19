@@ -44,6 +44,10 @@
           "named": true
         },
         {
+          "type": "parentheses",
+          "named": true
+        },
+        {
           "type": "status",
           "named": true
         },
@@ -112,6 +116,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "parentheses",
           "named": true
         },
         {
@@ -214,6 +222,10 @@
           "named": true
         },
         {
+          "type": "parentheses",
+          "named": true
+        },
+        {
           "type": "shebang",
           "named": true
         },
@@ -294,6 +306,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "parentheses",
           "named": true
         },
         {
@@ -410,6 +426,10 @@
           "named": true
         },
         {
+          "type": "parentheses",
+          "named": true
+        },
+        {
           "type": "status",
           "named": true
         },
@@ -478,6 +498,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "parentheses",
           "named": true
         },
         {
@@ -613,6 +637,10 @@
           "named": true
         },
         {
+          "type": "parentheses",
+          "named": true
+        },
+        {
           "type": "reference",
           "named": true
         },
@@ -726,6 +754,10 @@
           "named": true
         },
         {
+          "type": "parentheses",
+          "named": true
+        },
+        {
           "type": "status",
           "named": true
         },
@@ -801,6 +833,10 @@
           "named": true
         },
         {
+          "type": "parentheses",
+          "named": true
+        },
+        {
           "type": "status",
           "named": true
         },
@@ -869,6 +905,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "parentheses",
           "named": true
         },
         {
@@ -977,6 +1017,10 @@
           "named": true
         },
         {
+          "type": "parentheses",
+          "named": true
+        },
+        {
           "type": "status",
           "named": true
         },
@@ -1045,6 +1089,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "parentheses",
           "named": true
         },
         {
@@ -1143,6 +1191,10 @@
           "named": true
         },
         {
+          "type": "parentheses",
+          "named": true
+        },
+        {
           "type": "status",
           "named": true
         },
@@ -1179,6 +1231,81 @@
       "types": [
         {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parentheses",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "binop",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "command",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "if_ternary",
+          "named": true
+        },
+        {
+          "type": "keyword_binop",
+          "named": true
+        },
+        {
+          "type": "null",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "parentheses",
+          "named": true
+        },
+        {
+          "type": "status",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "subscript_expression",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "unop",
           "named": true
         },
         {
@@ -1270,6 +1397,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "parentheses",
           "named": true
         },
         {
@@ -1375,6 +1506,10 @@
           "named": true
         },
         {
+          "type": "parentheses",
+          "named": true
+        },
+        {
           "type": "status",
           "named": true
         },
@@ -1443,6 +1578,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "parentheses",
           "named": true
         },
         {
@@ -1526,6 +1665,10 @@
           "named": true
         },
         {
+          "type": "parentheses",
+          "named": true
+        },
+        {
           "type": "status",
           "named": true
         },
@@ -1594,6 +1737,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "parentheses",
           "named": true
         },
         {

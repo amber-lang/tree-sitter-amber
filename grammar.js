@@ -134,6 +134,7 @@ module.exports = grammar({
 
         variable_init: $ => seq("let", $.variable_assignment),
         variable_assignment: $ => prec(3, seq($.variable, optional($.subscript), "=", $._expression)),
+        parentheses: $ => prec.left(1, seq("(", $._expression, ")")),
 
         if_cond: $ => prec.left(seq("if", $._expression, $.block, optional(seq("else", $.block)))),
         if_chain: $ => seq("if", "{", optional(repeat(seq($._expression, $.block))), optional(seq("else", $.block)), "}"),
@@ -150,7 +151,7 @@ module.exports = grammar({
         status: $ => token("status"),
         array: $ => seq("[", optional(seq($._expression, repeat(seq(",", $._expression)))), "]"),
 
-        function_call: $ => seq(
+        function_call: $ => prec(2, seq(
             field("name", $.variable),
             seq(
                 "(",
@@ -160,7 +161,7 @@ module.exports = grammar({
                 ")",
                 optional($.handler),
             ),
-        ),
+        )),
 
         unop: $ => prec(3, choice(
             seq('-', $._expression),
@@ -238,6 +239,7 @@ module.exports = grammar({
             $.function_call,
             $.if_ternary,
             $.status,
+            $.parentheses,
             $.unop,
             $.binop,
             $.keyword_binop,
