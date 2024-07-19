@@ -70,7 +70,9 @@ module.exports = grammar({
 
         builtin: $ => seq(choice("echo", "exit"), $._expression),
 
+        reference: $ => "ref",
         function_parameter_list_item: $ => prec.left(seq(
+            optional($.reference),
             $.variable,
             optional(seq(
                 ":",
