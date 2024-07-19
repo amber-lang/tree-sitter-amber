@@ -348,6 +348,10 @@
       "required": false,
       "types": [
         {
+          "type": "command_content",
+          "named": true
+        },
+        {
           "type": "command_option",
           "named": true
         },
@@ -1461,6 +1465,10 @@
         {
           "type": "interpolation",
           "named": true
+        },
+        {
+          "type": "string_content",
+          "named": true
         }
       ]
     }
@@ -1925,6 +1933,10 @@
     "named": false
   },
   {
+    "type": "command_content",
+    "named": true
+  },
+  {
     "type": "command_option",
     "named": true
   },
@@ -2046,6 +2058,10 @@
   },
   {
     "type": "status",
+    "named": true
+  },
+  {
+    "type": "string_content",
     "named": true
   },
   {

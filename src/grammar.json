@@ -1547,6 +1547,17 @@
       "type": "PATTERN",
       "value": "\\w+"
     },
+    "string_content": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 2,
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\\\\\"{]+"
+        }
+      }
+    },
     "string": {
       "type": "SEQ",
       "members": [
@@ -1568,11 +1579,8 @@
                 "name": "interpolation"
               },
               {
-                "type": "IMMEDIATE_TOKEN",
-                "content": {
-                  "type": "PATTERN",
-                  "value": "[^\\\\\"{]+"
-                }
+                "type": "SYMBOL",
+                "name": "string_content"
               }
             ]
           }
@@ -1661,6 +1669,17 @@
         ]
       }
     },
+    "command_content": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 2,
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\\\\${-]+"
+        }
+      }
+    },
     "command": {
       "type": "SEQ",
       "members": [
@@ -1686,11 +1705,8 @@
                 "name": "interpolation"
               },
               {
-                "type": "IMMEDIATE_TOKEN",
-                "content": {
-                  "type": "PATTERN",
-                  "value": "[^\\\\${-]+"
-                }
+                "type": "SYMBOL",
+                "name": "command_content"
               }
             ]
           }
@@ -1740,21 +1756,17 @@
     "comment": {
       "type": "TOKEN",
       "content": {
-        "type": "PREC",
-        "value": -1,
-        "content": {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "//"
-            },
-            {
-              "type": "PATTERN",
-              "value": ".*"
-            }
-          ]
-        }
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "//"
+          },
+          {
+            "type": "PATTERN",
+            "value": ".*"
+          }
+        ]
       }
     },
     "_expression": {

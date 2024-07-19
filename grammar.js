@@ -199,13 +199,14 @@ module.exports = grammar({
 
         variable: $ => /\w+/,
 
+        string_content: $ => token.immediate(prec(2, /[^\\"{]+/)),
         string: $ => seq(
             '"',
             repeat(
                 choice(
                     $.escape_sequence,
                     $.interpolation,
-                    token.immediate(/[^\\"{]+/),
+                    $.string_content
                 ),
             ),
             '"',
@@ -220,6 +221,7 @@ module.exports = grammar({
 
         escape_sequence: $ => token(seq("\\", optional(/./))),
         interpolation: $ => prec(2, seq("{", $._expression, "}")),
+        command_content: $ => token.immediate(prec(2, /[^\\${-]+/)),
         command: $ => seq(
             "$",
             repeat(
@@ -227,7 +229,7 @@ module.exports = grammar({
                     $.escape_sequence,
                     $.command_option,
                     $.interpolation,
-                    token.immediate(/[^\\${-]+/),
+                    $.command_content,
                 ),
             ),
             "$",
@@ -235,7 +237,7 @@ module.exports = grammar({
         ),
 
         command_option: $ => token(seq(/-{1,2}/, optional(/[A-Za-z0-9-_]+/))),
-        comment: $ => token(prec(-1, seq("//", /.*/))),
+        comment: $ => token(seq("//", /.*/)),
         _expression: $ => choice(
             $.boolean,
             $.null,
