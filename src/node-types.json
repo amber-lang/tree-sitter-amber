@@ -40,6 +40,10 @@
           "named": true
         },
         {
+          "type": "status",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
@@ -135,6 +139,10 @@
           "named": true
         },
         {
+          "type": "status",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
@@ -203,6 +211,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "status",
           "named": true
         },
         {
@@ -311,6 +323,10 @@
           "named": true
         },
         {
+          "type": "status",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
@@ -371,6 +387,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "status",
           "named": true
         },
         {
@@ -498,6 +518,10 @@
           "named": true
         },
         {
+          "type": "status",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
@@ -599,6 +623,10 @@
           "named": true
         },
         {
+          "type": "status",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
@@ -666,6 +694,10 @@
           "named": true
         },
         {
+          "type": "status",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
@@ -726,6 +758,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "status",
           "named": true
         },
         {
@@ -826,6 +862,10 @@
           "named": true
         },
         {
+          "type": "status",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
@@ -886,6 +926,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "status",
           "named": true
         },
         {
@@ -973,6 +1017,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "status",
           "named": true
         },
         {
@@ -1102,6 +1150,10 @@
           "named": true
         },
         {
+          "type": "status",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
@@ -1192,6 +1244,10 @@
           "named": true
         },
         {
+          "type": "status",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
@@ -1252,6 +1308,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "status",
           "named": true
         },
         {
@@ -1327,6 +1387,10 @@
           "named": true
         },
         {
+          "type": "status",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
@@ -1387,6 +1451,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "status",
           "named": true
         },
         {
@@ -1662,6 +1730,10 @@
   {
     "type": "silent",
     "named": false
+  },
+  {
+    "type": "status",
+    "named": true
   },
   {
     "type": "then",

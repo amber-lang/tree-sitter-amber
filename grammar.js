@@ -234,6 +234,7 @@ module.exports = grammar({
             $.type_name,
             $.function_call,
             $.if_ternary,
+            $.status,
             $.unop,
             $.binop,
             $.keyword_binop,
