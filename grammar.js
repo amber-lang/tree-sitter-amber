@@ -102,6 +102,7 @@ module.exports = grammar({
             "fun",
             field("name", $.variable),
             field("parameters", $.function_parameter_list),
+            optional(seq(":", $.type_name)),
             field("body", $.block),
         ),
 
@@ -147,7 +148,11 @@ module.exports = grammar({
         boolean: $ => token(choice("true", "false")),
         null: $ => token("null"),
         number: $ => token(seq(optional(/[-+]/), /\d+(\.\d+)?/)),
-        type_name: $ => choice("Text", "Num", "Bool", "Null"),
+        type_name_symbol: $ => choice("Text", "Num", "Bool", "Null"),
+        type_name: $ => prec.left(choice(
+            $.type_name_symbol,
+            seq("[", $.type_name_symbol, "]")
+        )),
         status: $ => token("status"),
         array: $ => seq("[", optional(seq($._expression, repeat(seq(",", $._expression)))), "]"),
 
@@ -200,7 +205,7 @@ module.exports = grammar({
                 choice(
                     $.escape_sequence,
                     $.interpolation,
-                    token.immediate(/[^\\"{}]+/),
+                    token.immediate(/[^\\"{]+/),
                 ),
             ),
             '"',
@@ -214,7 +219,7 @@ module.exports = grammar({
         ),
 
         escape_sequence: $ => token(seq("\\", optional(/./))),
-        interpolation: $ => seq("{", $._expression, "}"),
+        interpolation: $ => prec(2, seq("{", $._expression, "}")),
         command: $ => seq(
             "$",
             repeat(
@@ -222,7 +227,7 @@ module.exports = grammar({
                     $.escape_sequence,
                     $.command_option,
                     $.interpolation,
-                    token.immediate(/[^\\${}-]+/),
+                    token.immediate(/[^\\${-]+/),
                 ),
             ),
             "$",
