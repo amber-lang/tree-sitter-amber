@@ -1740,17 +1740,21 @@
     "comment": {
       "type": "TOKEN",
       "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "//"
-          },
-          {
-            "type": "PATTERN",
-            "value": ".*"
-          }
-        ]
+        "type": "PREC",
+        "value": -1,
+        "content": {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "//"
+            },
+            {
+              "type": "PATTERN",
+              "value": ".*"
+            }
+          ]
+        }
       }
     },
     "_expression": {

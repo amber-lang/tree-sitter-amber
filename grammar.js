@@ -235,7 +235,7 @@ module.exports = grammar({
         ),
 
         command_option: $ => token(seq(/-{1,2}/, optional(/[A-Za-z0-9-_]+/))),
-        comment: $ => token(seq("//", /.*/)),
+        comment: $ => token(prec(-1, seq("//", /.*/))),
         _expression: $ => choice(
             $.boolean,
             $.null,
