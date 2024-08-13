@@ -1,34 +1,3 @@
-const KEYWORDS = [
-    "if",
-    "loop",
-    "ref",
-    "return",
-    "fun",
-    "else",
-    "then",
-    "break",
-    "continue",
-    "and",
-    "or",
-    "not",
-    "let",
-    "pub",
-    "main",
-    "echo",
-    "fun",
-    "import",
-    "as",
-    "in",
-    "fail",
-    "failed",
-    "status",
-    "silent",
-    "nameof",
-    "is",
-    "unsafe",
-    "trust"
-];
-
 module.exports = grammar({
     name: "amber",
 
@@ -173,6 +142,7 @@ module.exports = grammar({
             seq('-', $._expression),
             seq('not', $._expression),
             seq('unsafe', $._expression),
+            seq('trust', $._expression),
             seq('silent', $._expression),
             seq('nameof', $._expression),
         )),
