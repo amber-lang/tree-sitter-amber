@@ -26,6 +26,7 @@ const KEYWORDS = [
     "nameof",
     "is",
     "unsafe",
+    "trust"
 ];
 
 module.exports = grammar({
