@@ -112,7 +112,7 @@ module.exports = grammar({
         if_ternary: $ => prec.left(1, seq($._expression, "then", $._expression, "else", $._expression)),
 
         loop_infinite: $ => seq("loop", $.block),
-        loop_iter: $ => seq("loop", $.variable, optional(seq(",", $.variable)), "in", $._expression, $.block),
+        loop_iter: $ => seq("for", $.variable, optional(seq(",", $.variable)), "in", $._expression, $.block),
         loop_control_flow: $ => choice("break", "continue"),
 
         boolean: $ => token(choice("true", "false")),
