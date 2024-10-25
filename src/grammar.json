@@ -864,7 +864,7 @@
       "members": [
         {
           "type": "STRING",
-          "value": "loop"
+          "value": "for"
         },
         {
           "type": "SYMBOL",
