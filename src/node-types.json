@@ -24,6 +24,10 @@
           "named": true
         },
         {
+          "type": "command_modifier_block",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -96,6 +100,10 @@
         },
         {
           "type": "command",
+          "named": true
+        },
+        {
+          "type": "command_modifier_block",
           "named": true
         },
         {
@@ -175,6 +183,10 @@
         },
         {
           "type": "command",
+          "named": true
+        },
+        {
+          "type": "command_modifier_block",
           "named": true
         },
         {
@@ -289,6 +301,10 @@
           "named": true
         },
         {
+          "type": "command_modifier_block",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -371,6 +387,21 @@
     }
   },
   {
+    "type": "command_modifier_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "function_call",
     "named": true,
     "fields": {
@@ -403,6 +434,10 @@
         },
         {
           "type": "command",
+          "named": true
+        },
+        {
+          "type": "command_modifier_block",
           "named": true
         },
         {
@@ -482,6 +517,10 @@
         },
         {
           "type": "command",
+          "named": true
+        },
+        {
+          "type": "command_modifier_block",
           "named": true
         },
         {
@@ -625,6 +664,10 @@
           "named": true
         },
         {
+          "type": "command_modifier_block",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -742,6 +785,10 @@
           "named": true
         },
         {
+          "type": "command_modifier_block",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -821,6 +868,10 @@
           "named": true
         },
         {
+          "type": "command_modifier_block",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -893,6 +944,10 @@
         },
         {
           "type": "command",
+          "named": true
+        },
+        {
+          "type": "command_modifier_block",
           "named": true
         },
         {
@@ -1005,6 +1060,10 @@
           "named": true
         },
         {
+          "type": "command_modifier_block",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -1077,6 +1136,10 @@
         },
         {
           "type": "command",
+          "named": true
+        },
+        {
+          "type": "command_modifier_block",
           "named": true
         },
         {
@@ -1179,6 +1242,10 @@
           "named": true
         },
         {
+          "type": "command_modifier_block",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -1273,6 +1340,10 @@
           "named": true
         },
         {
+          "type": "command_modifier_block",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -1349,6 +1420,10 @@
         },
         {
           "type": "command",
+          "named": true
+        },
+        {
+          "type": "command_modifier_block",
           "named": true
         },
         {
@@ -1498,6 +1573,10 @@
           "named": true
         },
         {
+          "type": "command_modifier_block",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -1570,6 +1649,10 @@
         },
         {
           "type": "command",
+          "named": true
+        },
+        {
+          "type": "command_modifier_block",
           "named": true
         },
         {
@@ -1672,6 +1755,10 @@
           "named": true
         },
         {
+          "type": "command_modifier_block",
+          "named": true
+        },
+        {
           "type": "function_call",
           "named": true
         },
@@ -1744,6 +1831,10 @@
         },
         {
           "type": "command",
+          "named": true
+        },
+        {
+          "type": "command_modifier_block",
           "named": true
         },
         {

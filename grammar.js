@@ -206,6 +206,7 @@ module.exports = grammar({
             "$",
             optional($.handler)
         ),
+        command_modifier_block: $ => seq(choice("silent", "trust"), $.block),
 
         command_option: $ => token(seq(/-{1,2}/, optional(/[A-Za-z0-9-_]+/))),
         comment: $ => token(seq("//", /.*/)),
@@ -223,6 +224,7 @@ module.exports = grammar({
             $.keyword_binop,
             $.subscript_expression,
             $.command,
+            $.command_modifier_block,
             $.array,
             $.string,
             $.variable,

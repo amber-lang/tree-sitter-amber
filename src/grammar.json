@@ -1755,6 +1755,28 @@
         }
       ]
     },
+    "command_modifier_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "silent"
+            },
+            {
+              "type": "STRING",
+              "value": "trust"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
+        }
+      ]
+    },
     "command_option": {
       "type": "TOKEN",
       "content": {
@@ -1849,6 +1871,10 @@
         {
           "type": "SYMBOL",
           "name": "command"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "command_modifier_block"
         },
         {
           "type": "SYMBOL",
