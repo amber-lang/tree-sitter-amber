@@ -1933,6 +1933,10 @@
     "named": false
   },
   {
+    "type": "cd",
+    "named": false
+  },
+  {
     "type": "command_content",
     "named": true
   },
@@ -1943,6 +1947,10 @@
   {
     "type": "comment",
     "named": true
+  },
+  {
+    "type": "const",
+    "named": false
   },
   {
     "type": "continue",
