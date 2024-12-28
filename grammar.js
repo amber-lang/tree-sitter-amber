@@ -38,7 +38,7 @@ module.exports = grammar({
             $.block
         ),
 
-        builtin: $ => seq(choice("echo", "exit"), $._expression),
+        builtin: $ => seq(choice("cd", "echo", "exit"), $._expression),
 
         reference: $ => "ref",
         function_parameter_list_item: $ => prec.left(seq(
@@ -103,8 +103,12 @@ module.exports = grammar({
         subscript: $ => seq("[", $._expression, "]"),
         subscript_expression: $ => prec(5, seq($._expression, $.subscript)),
 
-        variable_init: $ => seq("let", $.variable_assignment),
-        variable_assignment: $ => prec(3, seq($.variable, optional($.subscript), "=", $._expression)),
+        variable_init: $ => seq(choice("const", "let"), $.variable_assignment),
+        variable_assignment: $ => prec(3, seq(
+            $.variable, optional($.subscript),
+            choice("=", "+=", "-=", "*=", "/=", "%="),
+            $._expression
+        )),
         parentheses: $ => prec.left(1, seq("(", $._expression, ")")),
 
         if_cond: $ => prec.left(seq("if", $._expression, $.block, optional(seq("else", $.block)))),
@@ -206,6 +210,7 @@ module.exports = grammar({
             "$",
             optional($.handler)
         ),
+        command_modifier_block: $ => seq(choice("silent", "trust"), $.block),
 
         command_option: $ => token(seq(/-{1,2}/, optional(/[A-Za-z0-9-_]+/))),
         comment: $ => token(seq("//", /.*/)),
@@ -223,6 +228,7 @@ module.exports = grammar({
             $.keyword_binop,
             $.subscript_expression,
             $.command,
+            $.command_modifier_block,
             $.array,
             $.string,
             $.variable,
