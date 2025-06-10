@@ -2104,7 +2104,15 @@
     "named": false
   },
   {
+    "type": "len",
+    "named": false
+  },
+  {
     "type": "let",
+    "named": false
+  },
+  {
+    "type": "lines",
     "named": false
   },
   {
