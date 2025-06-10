@@ -145,6 +145,8 @@ module.exports = grammar({
             seq('trust', $._expression),
             seq('silent', $._expression),
             seq('nameof', $._expression),
+            seq('len', $._expression),
+            seq('lines', $._expression),
         )),
 
         binop: $ => choice(
