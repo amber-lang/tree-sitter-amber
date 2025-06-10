@@ -104,7 +104,11 @@ module.exports = grammar({
         subscript_expression: $ => prec(5, seq($._expression, $.subscript)),
 
         variable_init: $ => seq(choice("const", "let"), $.variable_assignment),
-        variable_assignment: $ => prec(3, seq($.variable, optional($.subscript), "=", $._expression)),
+        variable_assignment: $ => prec(3, seq(
+            $.variable, optional($.subscript),
+            choice("=", "+=", "-=", "*=", "/=", "%="),
+            $._expression
+        )),
         parentheses: $ => prec.left(1, seq("(", $._expression, ")")),
 
         if_cond: $ => prec.left(seq("if", $._expression, $.block, optional(seq("else", $.block)))),
