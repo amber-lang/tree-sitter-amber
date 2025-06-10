@@ -658,11 +658,11 @@
           "members": [
             {
               "type": "STRING",
-              "value": "const"
+              "value": "let"
             },
             {
               "type": "STRING",
-              "value": "let"
+              "value": "const"
             }
           ]
         },
