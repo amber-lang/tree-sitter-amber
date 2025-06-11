@@ -23,7 +23,7 @@ module.exports = grammar({
             $.variable_init,
             $.variable_assignment,
             $.shebang,
-            $.builtin,
+            $.builtin_stmt,
             $._expression
         ), optional(";"))),
 
@@ -38,7 +38,7 @@ module.exports = grammar({
             $.block
         ),
 
-        builtin: $ => seq(choice("cd", "echo", "exit"), $._expression),
+        builtin_stmt: $ => seq(choice("cd", "echo", "exit"), $._expression),
 
         reference: $ => "ref",
         function_parameter_list_item: $ => prec.left(seq(
@@ -138,6 +138,8 @@ module.exports = grammar({
             ),
         )),
 
+        builtin_expr: $ => prec(3, seq(choice('len', 'lines'), '(',  $._expression, ')')),
+
         unop: $ => prec(3, choice(
             seq('-', $._expression),
             seq('not', $._expression),
@@ -221,6 +223,7 @@ module.exports = grammar({
             $.if_ternary,
             $.status,
             $.parentheses,
+            $.builtin_expr,
             $.unop,
             $.binop,
             $.keyword_binop,

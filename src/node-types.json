@@ -20,6 +20,10 @@
           "named": true
         },
         {
+          "type": "builtin_expr",
+          "named": true
+        },
+        {
           "type": "command",
           "named": true
         },
@@ -96,6 +100,10 @@
         },
         {
           "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "builtin_expr",
           "named": true
         },
         {
@@ -178,7 +186,11 @@
           "named": true
         },
         {
-          "type": "builtin",
+          "type": "builtin_expr",
+          "named": true
+        },
+        {
+          "type": "builtin_stmt",
           "named": true
         },
         {
@@ -277,7 +289,7 @@
     }
   },
   {
-    "type": "builtin",
+    "type": "builtin_expr",
     "named": true,
     "fields": {},
     "children": {
@@ -294,6 +306,93 @@
         },
         {
           "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "builtin_expr",
+          "named": true
+        },
+        {
+          "type": "command",
+          "named": true
+        },
+        {
+          "type": "command_modifier_block",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "if_ternary",
+          "named": true
+        },
+        {
+          "type": "keyword_binop",
+          "named": true
+        },
+        {
+          "type": "null",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "parentheses",
+          "named": true
+        },
+        {
+          "type": "status",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "subscript_expression",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "unop",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "builtin_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "binop",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "builtin_expr",
           "named": true
         },
         {
@@ -433,6 +532,10 @@
           "named": true
         },
         {
+          "type": "builtin_expr",
+          "named": true
+        },
+        {
           "type": "command",
           "named": true
         },
@@ -513,6 +616,10 @@
         },
         {
           "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "builtin_expr",
           "named": true
         },
         {
@@ -660,6 +767,10 @@
           "named": true
         },
         {
+          "type": "builtin_expr",
+          "named": true
+        },
+        {
           "type": "command",
           "named": true
         },
@@ -781,6 +892,10 @@
           "named": true
         },
         {
+          "type": "builtin_expr",
+          "named": true
+        },
+        {
           "type": "command",
           "named": true
         },
@@ -864,6 +979,10 @@
           "named": true
         },
         {
+          "type": "builtin_expr",
+          "named": true
+        },
+        {
           "type": "command",
           "named": true
         },
@@ -940,6 +1059,10 @@
         },
         {
           "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "builtin_expr",
           "named": true
         },
         {
@@ -1056,6 +1179,10 @@
           "named": true
         },
         {
+          "type": "builtin_expr",
+          "named": true
+        },
+        {
           "type": "command",
           "named": true
         },
@@ -1132,6 +1259,10 @@
         },
         {
           "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "builtin_expr",
           "named": true
         },
         {
@@ -1238,6 +1369,10 @@
           "named": true
         },
         {
+          "type": "builtin_expr",
+          "named": true
+        },
+        {
           "type": "command",
           "named": true
         },
@@ -1336,6 +1471,10 @@
           "named": true
         },
         {
+          "type": "builtin_expr",
+          "named": true
+        },
+        {
           "type": "command",
           "named": true
         },
@@ -1415,7 +1554,11 @@
           "named": true
         },
         {
-          "type": "builtin",
+          "type": "builtin_expr",
+          "named": true
+        },
+        {
+          "type": "builtin_stmt",
           "named": true
         },
         {
@@ -1569,6 +1712,10 @@
           "named": true
         },
         {
+          "type": "builtin_expr",
+          "named": true
+        },
+        {
           "type": "command",
           "named": true
         },
@@ -1645,6 +1792,10 @@
         },
         {
           "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "builtin_expr",
           "named": true
         },
         {
@@ -1751,6 +1902,10 @@
           "named": true
         },
         {
+          "type": "builtin_expr",
+          "named": true
+        },
+        {
           "type": "command",
           "named": true
         },
@@ -1827,6 +1982,10 @@
         },
         {
           "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "builtin_expr",
           "named": true
         },
         {
