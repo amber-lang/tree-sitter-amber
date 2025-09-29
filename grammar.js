@@ -56,10 +56,17 @@ module.exports = grammar({
 
         function_parameter_list: $ => seq(
             "(",
-            optional(seq(
-                $.function_parameter_list_item,
-                repeat(seq(",", $.function_parameter_list_item)
-            ))),
+            optional(
+                seq(
+                    $.function_parameter_list_item,
+                    repeat(
+                        seq(
+                            ",",
+                            $.function_parameter_list_item
+                        )
+                    )
+                )
+            ),
             ")"
         ),
 
@@ -142,7 +149,7 @@ module.exports = grammar({
             ),
         )),
 
-        builtin_expr: $ => prec(3, seq(choice('len', 'lines'), '(',  $._expression, ')')),
+        builtin_expr: $ => prec(3, seq(choice('len', 'lines'), '(', $._expression, ')')),
 
         unop: $ => prec(3, choice(
             seq('-', $._expression),
