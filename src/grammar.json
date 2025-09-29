@@ -73,7 +73,11 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "loop_iter"
+                "name": "for_loop"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "while_loop"
               },
               {
                 "type": "SYMBOL",
@@ -897,7 +901,7 @@
         }
       ]
     },
-    "loop_iter": {
+    "for_loop": {
       "type": "SEQ",
       "members": [
         {
@@ -932,6 +936,23 @@
         {
           "type": "STRING",
           "value": "in"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
+        }
+      ]
+    },
+    "while_loop": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "while"
         },
         {
           "type": "SYMBOL",
