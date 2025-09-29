@@ -150,6 +150,7 @@ module.exports = grammar({
             seq('unsafe', $._expression),
             seq('trust', $._expression),
             seq('silent', $._expression),
+            seq('sudo', $._expression),
             seq('nameof', $._expression),
             seq('len', $._expression),
             seq('lines', $._expression),
@@ -214,7 +215,16 @@ module.exports = grammar({
             "$",
             optional($.handler)
         ),
-        command_modifier_block: $ => seq(choice("silent", "trust"), $.block),
+        command_modifier_block: $ => seq(
+            repeat1(
+                choice(
+                    "silent",
+                    "trust",
+                    "sudo",
+                )
+            ),
+            $.block
+        ),
 
         command_option: $ => token(seq(/-{1,2}/, optional(/[A-Za-z0-9-_]+/))),
         comment: $ => token(seq("//", /.*/)),
