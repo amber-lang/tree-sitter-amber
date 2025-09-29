@@ -848,12 +848,31 @@
         {
           "type": "handler_propagation",
           "named": true
+        },
+        {
+          "type": "handler_succeeded",
+          "named": true
         }
       ]
     }
   },
   {
     "type": "handler_failed",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "handler_succeeded",
     "named": true,
     "fields": {},
     "children": {
@@ -2353,6 +2372,14 @@
   {
     "type": "string_content",
     "named": true
+  },
+  {
+    "type": "succeeded",
+    "named": false
+  },
+  {
+    "type": "sudo",
+    "named": false
   },
   {
     "type": "then",

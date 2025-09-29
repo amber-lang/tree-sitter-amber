@@ -1292,6 +1292,19 @@
             "members": [
               {
                 "type": "STRING",
+                "value": "sudo"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_expression"
+              }
+            ]
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
                 "value": "nameof"
               },
               {
@@ -1715,6 +1728,19 @@
         }
       ]
     },
+    "handler_succeeded": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "succeeded"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
+        }
+      ]
+    },
     "handler_propagation": {
       "type": "TOKEN",
       "content": {
@@ -1728,6 +1754,10 @@
         {
           "type": "SYMBOL",
           "name": "handler_failed"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "handler_succeeded"
         },
         {
           "type": "SYMBOL",
@@ -1844,17 +1874,24 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "silent"
-            },
-            {
-              "type": "STRING",
-              "value": "trust"
-            }
-          ]
+          "type": "REPEAT1",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "silent"
+              },
+              {
+                "type": "STRING",
+                "value": "trust"
+              },
+              {
+                "type": "STRING",
+                "value": "sudo"
+              }
+            ]
+          }
         },
         {
           "type": "SYMBOL",
