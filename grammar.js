@@ -193,9 +193,11 @@ module.exports = grammar({
         ),
 
         handler_failed: $ => seq("failed", $.block),
+        handler_succeeded: $ => seq("succeeded", $.block),
         handler_propagation: $ => token("?"),
         handler: $ => choice(
             $.handler_failed,
+            $.handler_succeeded,
             $.handler_propagation
         ),
 
