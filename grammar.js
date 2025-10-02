@@ -139,7 +139,7 @@ module.exports = grammar({
         status: $ => token("status"),
         array: $ => seq("[", optional(seq($._expression, repeat(seq(",", $._expression)))), "]"),
 
-        function_call: $ => prec(2, seq(
+        function_call: $ => prec.right(2, seq(
             field("name", $.variable),
             seq(
                 "(",
@@ -201,19 +201,21 @@ module.exports = grammar({
             '"',
         ),
 
-        handler_failed: $ => seq("failed", $.block),
+        handler_failed: $ => seq("failed", optional(seq("(", $.variable, ")")), $.block),
         handler_succeeded: $ => seq("succeeded", $.block),
+        handler_then: $ => seq("then", "(", $.variable, ")", $.block),
         handler_propagation: $ => token("?"),
         handler: $ => choice(
             $.handler_failed,
             $.handler_succeeded,
+            $.handler_then,
             $.handler_propagation
         ),
 
         escape_sequence: $ => token(seq("\\", optional(/./))),
         interpolation: $ => prec(2, seq("{", $._expression, "}")),
         command_content: $ => token.immediate(prec(2, /[^\\${-]+/)),
-        command: $ => seq(
+        command: $ => prec.right(seq(
             "$",
             repeat(
                 choice(
@@ -225,7 +227,7 @@ module.exports = grammar({
             ),
             "$",
             optional($.handler)
-        ),
+        )),
         command_modifier_block: $ => seq(
             repeat1(
                 choice(

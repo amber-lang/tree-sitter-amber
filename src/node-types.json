@@ -943,6 +943,10 @@
         {
           "type": "handler_succeeded",
           "named": true
+        },
+        {
+          "type": "handler_then",
+          "named": true
         }
       ]
     }
@@ -952,11 +956,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -972,6 +980,25 @@
       "types": [
         {
           "type": "block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "handler_then",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
