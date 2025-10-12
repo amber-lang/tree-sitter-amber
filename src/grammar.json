@@ -73,7 +73,11 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "loop_iter"
+                "name": "for_loop"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "while_loop"
               },
               {
                 "type": "SYMBOL",
@@ -897,7 +901,7 @@
         }
       ]
     },
-    "loop_iter": {
+    "for_loop": {
       "type": "SEQ",
       "members": [
         {
@@ -932,6 +936,23 @@
         {
           "type": "STRING",
           "value": "in"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
+        }
+      ]
+    },
+    "while_loop": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "while"
         },
         {
           "type": "SYMBOL",
@@ -1108,7 +1129,7 @@
       ]
     },
     "function_call": {
-      "type": "PREC",
+      "type": "PREC_RIGHT",
       "value": 2,
       "content": {
         "type": "SEQ",
@@ -1280,6 +1301,19 @@
               {
                 "type": "STRING",
                 "value": "silent"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_expression"
+              }
+            ]
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "sudo"
               },
               {
                 "type": "SYMBOL",
@@ -1710,6 +1744,69 @@
           "value": "failed"
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "("
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "variable"
+                },
+                {
+                  "type": "STRING",
+                  "value": ")"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
+        }
+      ]
+    },
+    "handler_succeeded": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "succeeded"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
+        }
+      ]
+    },
+    "handler_then": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "then"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "variable"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
           "type": "SYMBOL",
           "name": "block"
         }
@@ -1728,6 +1825,14 @@
         {
           "type": "SYMBOL",
           "name": "handler_failed"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "handler_succeeded"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "handler_then"
         },
         {
           "type": "SYMBOL",
@@ -1792,69 +1897,80 @@
       }
     },
     "command": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "$"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "$"
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "escape_sequence"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "command_option"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "interpolation"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "command_content"
+                }
+              ]
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "$"
+          },
+          {
             "type": "CHOICE",
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "escape_sequence"
+                "name": "handler"
               },
               {
-                "type": "SYMBOL",
-                "name": "command_option"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "interpolation"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "command_content"
+                "type": "BLANK"
               }
             ]
           }
-        },
-        {
-          "type": "STRING",
-          "value": "$"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "handler"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
+        ]
+      }
     },
     "command_modifier_block": {
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "silent"
-            },
-            {
-              "type": "STRING",
-              "value": "trust"
-            }
-          ]
+          "type": "REPEAT1",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "silent"
+              },
+              {
+                "type": "STRING",
+                "value": "trust"
+              },
+              {
+                "type": "STRING",
+                "value": "sudo"
+              }
+            ]
+          }
         },
         {
           "type": "SYMBOL",

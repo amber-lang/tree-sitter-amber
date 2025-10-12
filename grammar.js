@@ -18,7 +18,8 @@ module.exports = grammar({
             $.if_cond,
             $.if_chain,
             $.loop_infinite,
-            $.loop_iter,
+            $.for_loop,
+            $.while_loop,
             $.loop_control_flow,
             $.variable_init,
             $.variable_assignment,
@@ -56,10 +57,17 @@ module.exports = grammar({
 
         function_parameter_list: $ => seq(
             "(",
-            optional(seq(
-                $.function_parameter_list_item,
-                repeat(seq(",", $.function_parameter_list_item)
-            ))),
+            optional(
+                seq(
+                    $.function_parameter_list_item,
+                    repeat(
+                        seq(
+                            ",",
+                            $.function_parameter_list_item
+                        )
+                    )
+                )
+            ),
             ")"
         ),
 
@@ -116,7 +124,8 @@ module.exports = grammar({
         if_ternary: $ => prec.left(1, seq($._expression, "then", $._expression, "else", $._expression)),
 
         loop_infinite: $ => seq("loop", $.block),
-        loop_iter: $ => seq("for", $.variable, optional(seq(",", $.variable)), "in", $._expression, $.block),
+        for_loop: $ => seq("for", $.variable, optional(seq(",", $.variable)), "in", $._expression, $.block),
+        while_loop: $ => seq("while", $._expression, $.block),
         loop_control_flow: $ => choice("break", "continue"),
 
         boolean: $ => token(choice("true", "false")),
@@ -130,7 +139,7 @@ module.exports = grammar({
         status: $ => token("status"),
         array: $ => seq("[", optional(seq($._expression, repeat(seq(",", $._expression)))), "]"),
 
-        function_call: $ => prec(2, seq(
+        function_call: $ => prec.right(2, seq(
             field("name", $.variable),
             seq(
                 "(",
@@ -142,7 +151,7 @@ module.exports = grammar({
             ),
         )),
 
-        builtin_expr: $ => prec(3, seq(choice('len', 'lines'), '(',  $._expression, ')')),
+        builtin_expr: $ => prec(3, seq(choice('len', 'lines'), '(', $._expression, ')')),
 
         unop: $ => prec(3, choice(
             seq('-', $._expression),
@@ -150,6 +159,7 @@ module.exports = grammar({
             seq('unsafe', $._expression),
             seq('trust', $._expression),
             seq('silent', $._expression),
+            seq('sudo', $._expression),
             seq('nameof', $._expression),
             seq('len', $._expression),
             seq('lines', $._expression),
@@ -191,17 +201,21 @@ module.exports = grammar({
             '"',
         ),
 
-        handler_failed: $ => seq("failed", $.block),
+        handler_failed: $ => seq("failed", optional(seq("(", $.variable, ")")), $.block),
+        handler_succeeded: $ => seq("succeeded", $.block),
+        handler_then: $ => seq("then", "(", $.variable, ")", $.block),
         handler_propagation: $ => token("?"),
         handler: $ => choice(
             $.handler_failed,
+            $.handler_succeeded,
+            $.handler_then,
             $.handler_propagation
         ),
 
         escape_sequence: $ => token(seq("\\", optional(/./))),
         interpolation: $ => prec(2, seq("{", $._expression, "}")),
         command_content: $ => token.immediate(prec(2, /[^\\${-]+/)),
-        command: $ => seq(
+        command: $ => prec.right(seq(
             "$",
             repeat(
                 choice(
@@ -213,8 +227,17 @@ module.exports = grammar({
             ),
             "$",
             optional($.handler)
+        )),
+        command_modifier_block: $ => seq(
+            repeat1(
+                choice(
+                    "silent",
+                    "trust",
+                    "sudo",
+                )
+            ),
+            $.block
         ),
-        command_modifier_block: $ => seq(choice("silent", "trust"), $.block),
 
         command_option: $ => token(seq(/-{1,2}/, optional(/[A-Za-z0-9-_]+/))),
         comment: $ => token(seq("//", /.*/)),
