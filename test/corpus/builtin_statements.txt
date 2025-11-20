@@ -53,7 +53,7 @@ Builtin statement: mv
 ================================================================================
 
 main {
-    mv ["source.txt", "dest.txt"]
+    mv "source.txt", "dest.txt"
 }
 
 --------------------------------------------------------------------------------
@@ -61,9 +61,8 @@ main {
 (source_file
   (main_block
     (block
-      (builtin_stmt
-        (array
-          (string
-            (string_content))
-          (string
-            (string_content)))))))
+      (mv_stmt
+        (string
+          (string_content))
+        (string
+          (string_content))))))

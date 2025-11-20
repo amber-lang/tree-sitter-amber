@@ -101,6 +101,10 @@
               },
               {
                 "type": "SYMBOL",
+                "name": "mv_stmt"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "_expression"
               }
             ]
@@ -213,12 +217,29 @@
             {
               "type": "STRING",
               "value": "exit"
-            },
-            {
-              "type": "STRING",
-              "value": "mv"
             }
           ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        }
+      ]
+    },
+    "mv_stmt": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "mv"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
         },
         {
           "type": "SYMBOL",
