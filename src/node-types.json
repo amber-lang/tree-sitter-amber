@@ -2444,6 +2444,10 @@
     "named": false
   },
   {
+    "type": "mv",
+    "named": false
+  },
+  {
     "type": "nameof",
     "named": false
   },

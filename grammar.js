@@ -39,7 +39,7 @@ module.exports = grammar({
             $.block
         ),
 
-        builtin_stmt: $ => seq(choice("cd", "echo", "exit"), $._expression),
+        builtin_stmt: $ => seq(choice("cd", "echo", "exit", "mv"), $._expression),
 
         reference: $ => "ref",
         function_parameter_list_item: $ => prec.left(seq(
