@@ -107,7 +107,7 @@ module.exports = grammar({
 
         parameter_list: $ => seq(
             "(",
-            optional(seq($.variable, repeat(seq(",", $.variable)))),
+            optional(seq($._expression, repeat(seq(",", $._expression)))),
             ")",
         ),
 
@@ -144,17 +144,10 @@ module.exports = grammar({
 
         function_call: $ => prec.right(2, seq(
             field("name", $.variable),
-            seq(
-                "(",
-                optional(
-                    seq($._expression, repeat(seq(",", $._expression))),
-                ),
-                ")",
-                optional($.handler),
-            ),
+            seq($.parameter_list, optional($.handler)),
         )),
 
-        builtin_expr: $ => prec(3, seq(choice('len', 'lines'), '(', $._expression, ')')),
+        builtin_expr: $ => prec(3, seq(choice('len', 'lines'), $.parameter_list)),
 
         unop: $ => prec(3, choice(
             seq('-', $._expression),
@@ -204,9 +197,9 @@ module.exports = grammar({
             '"',
         ),
 
-        handler_failed: $ => seq("failed", optional(seq("(", $.variable, ")")), $.block),
+        handler_failed: $ => seq("failed", optional($.parameter_list), $.block),
         handler_succeeded: $ => seq("succeeded", $.block),
-        handler_exited: $ => seq("exited", "(", $.variable, ")", $.block),
+        handler_exited: $ => seq("exited", $.parameter_list, $.block),
         handler_propagation: $ => token("?"),
         handler: $ => choice(
             $.handler_failed,
