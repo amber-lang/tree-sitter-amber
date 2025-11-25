@@ -206,12 +206,12 @@ module.exports = grammar({
 
         handler_failed: $ => seq("failed", optional(seq("(", $.variable, ")")), $.block),
         handler_succeeded: $ => seq("succeeded", $.block),
-        handler_then: $ => seq("then", "(", $.variable, ")", $.block),
+        handler_exited: $ => seq("exited", "(", $.variable, ")", $.block),
         handler_propagation: $ => token("?"),
         handler: $ => choice(
             $.handler_failed,
             $.handler_succeeded,
-            $.handler_then,
+            $.handler_exited,
             $.handler_propagation
         ),
 

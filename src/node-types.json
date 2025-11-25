@@ -937,6 +937,10 @@
       "required": true,
       "types": [
         {
+          "type": "handler_exited",
+          "named": true
+        },
+        {
           "type": "handler_failed",
           "named": true
         },
@@ -947,9 +951,24 @@
         {
           "type": "handler_succeeded",
           "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "handler_exited",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
         },
         {
-          "type": "handler_then",
+          "type": "variable",
           "named": true
         }
       ]
@@ -984,25 +1003,6 @@
       "types": [
         {
           "type": "block",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "handler_then",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "variable",
           "named": true
         }
       ]
@@ -2472,6 +2472,10 @@
   },
   {
     "type": "exit",
+    "named": false
+  },
+  {
+    "type": "exited",
     "named": false
   },
   {
