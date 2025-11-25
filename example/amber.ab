@@ -1,0 +1,10 @@
+let value = 12
+
+// This is a test
+pub fun trim_right(text: Text): Text {
+    return unsafe $echo "{text}" | sed -e 's/[[:space:]]*\$//'$
+}
+
+for item in [1, 2, 3] {
+    echo "Counting {item}"
+}
