@@ -25,6 +25,7 @@ module.exports = grammar({
             $.variable_assignment,
             $.shebang,
             $.builtin_stmt,
+            $.mv_stmt,
             $._expression
         ), optional(";"))),
 
@@ -40,6 +41,8 @@ module.exports = grammar({
         ),
 
         builtin_stmt: $ => seq(choice("cd", "echo", "exit"), $._expression),
+
+        mv_stmt: $ => seq("mv", $._expression, ",", $._expression),
 
         reference: $ => "ref",
         function_parameter_list_item: $ => prec.left(seq(
@@ -203,12 +206,12 @@ module.exports = grammar({
 
         handler_failed: $ => seq("failed", optional(seq("(", $.variable, ")")), $.block),
         handler_succeeded: $ => seq("succeeded", $.block),
-        handler_then: $ => seq("then", "(", $.variable, ")", $.block),
+        handler_exited: $ => seq("exited", "(", $.variable, ")", $.block),
         handler_propagation: $ => token("?"),
         handler: $ => choice(
             $.handler_failed,
             $.handler_succeeded,
-            $.handler_then,
+            $.handler_exited,
             $.handler_propagation
         ),
 

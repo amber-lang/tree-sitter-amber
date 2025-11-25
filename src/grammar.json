@@ -101,6 +101,10 @@
               },
               {
                 "type": "SYMBOL",
+                "name": "mv_stmt"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "_expression"
               }
             ]
@@ -215,6 +219,27 @@
               "value": "exit"
             }
           ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        }
+      ]
+    },
+    "mv_stmt": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "mv"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
         },
         {
           "type": "SYMBOL",
@@ -1787,12 +1812,12 @@
         }
       ]
     },
-    "handler_then": {
+    "handler_exited": {
       "type": "SEQ",
       "members": [
         {
           "type": "STRING",
-          "value": "then"
+          "value": "exited"
         },
         {
           "type": "STRING",
@@ -1832,7 +1857,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "handler_then"
+          "name": "handler_exited"
         },
         {
           "type": "SYMBOL",

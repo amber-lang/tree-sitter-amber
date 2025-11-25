@@ -238,6 +238,10 @@
           "named": true
         },
         {
+          "type": "mv_stmt",
+          "named": true
+        },
+        {
           "type": "null",
           "named": true
         },
@@ -933,6 +937,10 @@
       "required": true,
       "types": [
         {
+          "type": "handler_exited",
+          "named": true
+        },
+        {
           "type": "handler_failed",
           "named": true
         },
@@ -943,9 +951,24 @@
         {
           "type": "handler_succeeded",
           "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "handler_exited",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
         },
         {
-          "type": "handler_then",
+          "type": "variable",
           "named": true
         }
       ]
@@ -980,25 +1003,6 @@
       "types": [
         {
           "type": "block",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "handler_then",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "variable",
           "named": true
         }
       ]
@@ -1501,6 +1505,89 @@
     }
   },
   {
+    "type": "mv_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "binop",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "builtin_expr",
+          "named": true
+        },
+        {
+          "type": "command",
+          "named": true
+        },
+        {
+          "type": "command_modifier_block",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "if_ternary",
+          "named": true
+        },
+        {
+          "type": "keyword_binop",
+          "named": true
+        },
+        {
+          "type": "null",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "parentheses",
+          "named": true
+        },
+        {
+          "type": "status",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "subscript_expression",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        },
+        {
+          "type": "unop",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "parentheses",
     "named": true,
     "fields": {},
@@ -1665,6 +1752,10 @@
         },
         {
           "type": "main_block",
+          "named": true
+        },
+        {
+          "type": "mv_stmt",
           "named": true
         },
         {
@@ -2384,6 +2475,10 @@
     "named": false
   },
   {
+    "type": "exited",
+    "named": false
+  },
+  {
     "type": "fail",
     "named": false
   },
@@ -2441,6 +2536,10 @@
   },
   {
     "type": "main",
+    "named": false
+  },
+  {
+    "type": "mv",
     "named": false
   },
   {
