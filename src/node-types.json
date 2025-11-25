@@ -2346,6 +2346,10 @@
     "named": false
   },
   {
+    "type": "Int",
+    "named": false
+  },
+  {
     "type": "Null",
     "named": false
   },

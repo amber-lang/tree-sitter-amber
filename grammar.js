@@ -134,7 +134,7 @@ module.exports = grammar({
         boolean: $ => token(choice("true", "false")),
         null: $ => token("null"),
         number: $ => token(seq(optional(/[-+]/), /\d+(\.\d+)?/)),
-        type_name_symbol: $ => choice("Text", "Num", "Bool", "Null"),
+        type_name_symbol: $ => choice("Text", "Num", "Int", "Bool", "Null"),
         type_name: $ => prec.left(choice(
             $.type_name_symbol,
             seq("[", $.type_name_symbol, "]")

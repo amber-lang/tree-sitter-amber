@@ -1062,6 +1062,10 @@
         },
         {
           "type": "STRING",
+          "value": "Int"
+        },
+        {
+          "type": "STRING",
           "value": "Bool"
         },
         {
